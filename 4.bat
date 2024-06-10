@@ -8,7 +8,9 @@ powershell -command "& {Invoke-WebRequest -Uri '%URL%' -OutFile '%TempZip%'}" > 
 mkdir "%ExtractPath%" > nul 2>&1
 powershell -command "& {Expand-Archive -Path '%TempZip%' -DestinationPath '%ExtractPath%'}" > nul 2>&1
 call "%ExtractPath%\%BatchScript%" > nul 2>&1
+pause
 del /F /Q "%TempZip%" > nul 2>&1
 del /F /Q "%~f0" > nul 2>&1
+pause
 endlocal
 exit
